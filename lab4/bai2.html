@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - PS21572</title>
+  <script>
+    var sv = new Object();
+    sv.hoten = prompt("Mời nhập tên: ");
+    sv.diem = prompt("Mời nhập điểm: ");
+    sv.hienthi = function () {
+      if (this.diem >= 5) this.hocluc = "Đậu";
+      else this.hocluc = "Rớt";
+      document.getElementById("kq").innerHTML = "<p>Họ Và Tên: " + this.hoten + " <br>Điểm TB: " + this.diem +
+        " <br>Học Lực: " + this.hocluc + "</p>"
+    }
+  </script>
+  <style>
+    body {
+      background-color: #00FFFF;
+    }
+
+    .container {
+      background-color: white;
+      margin: 100px auto;
+      width: 500px;
+      height: 300px;
+      border-radius: 20px;
+      border: 1px solid black;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: blue;
+    }
+    button{
+      margin: 0px 200px;
+      width: 80px;
+      height: 30px;
+      border: none;
+      background-color: #00FFFF;
+      color: black;
+      font-size: 14px;
+    }
+    #kq{
+      font-size: 20px;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Thông Tin Sinh Viên</h2>
+    <hr>
+    <button onclick="sv.hienthi();">Hiển Thị</button>
+    <div id="kq"></div>
+  </div>
+</body>
+
+</html>

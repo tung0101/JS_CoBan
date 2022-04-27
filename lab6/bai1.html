@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab6 - Bài1</title>
+</head>
+<style>
+  body{
+    background-image: url(images/background-dep-1.jpg);
+  }
+  .container {
+    background-color: #48D1CC;
+    width: 1000px;
+    height: 550px;
+    margin: auto;
+    border: 1px solid #48D1CC;
+  }
+
+  img {
+    width: 800px;
+    height: 400px;
+    margin: auto 90px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  .btn_container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  button{
+    height: 30px;
+    width: 60px;
+    border: none;
+    background-color: #4169E1;
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h2>Phong Cảnh Việt Nam</h2>
+    <img src="images/1.jpg" alt="" id="anh">
+    <div class="btn_container">
+      <button onclick="first()">
+        <<</button> <button onclick="prev()">
+          <</button> <button onclick="next()">>
+      </button>
+      <button onclick="last()">>></button>
+    </div>
+  </div>
+</body>
+<script>
+  var images = [];
+  var index = 1;
+  var sohinh = 7;
+  for (var i = 0; i <= sohinh; i++) {
+    images[i] = new Image();
+    images[i].src = "images/" + i + ".jpg";
+  }
+
+  function first() {
+    index = 1;
+    var anh = document.getElementById("anh");
+    anh.src = images[index].src;
+  }
+
+  function last() {
+    index = images.length - 1;
+    var anh = document.getElementById("anh");
+    anh.src = images[index].src;
+  }
+
+  function next() {
+    index++;
+    if (index >= images.length)
+      index = 1;
+    var anh = document.getElementById("anh");
+    anh.src = images[index].src;
+  }
+
+  function prev() {
+    index--;
+    if (index < 1)
+      index = images.length - 1;
+    var anh = document.getElementById("anh");
+    anh.src = images[index].src;
+  }
+</script>
+
+</html>

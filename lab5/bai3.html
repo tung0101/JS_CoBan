@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    height: 700px;
+    background-color: pink;
+    background-image: linear-gradient(#FFA07A, #6A5AF9, #FF6347);
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: white;
+  }
+
+  h1 {
+    color: yellow;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 700;
+  }
+</style>
+
+<body>
+  <h1>TICTACTOE GAME</h1>
+  <table class="container">
+    <tr>
+      <td><button onclick="mark(0)"></button></td>
+      <td><button onclick="mark(1)"></button></td>
+      <td><button onclick="mark(2)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="mark(3)"></button></td>
+      <td><button onclick="mark(4)"></button></td>
+      <td><button onclick="mark(5)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="mark(6)"></button></td>
+      <td><button onclick="mark(7)"></button></td>
+      <td><button onclick="mark(8)"></button></td>
+    </tr>
+  </table>
+  <script>
+    var flag = true;
+    var count = 0;
+
+    function mark(index) {
+      var button = document.getElementsByTagName("button")[index];
+      button.innerText = flag ? "X" : "O";
+      button.style.background = flag ? "red" : "yellow";
+      button.style.fontSize = "32px";
+      button.style.fontWeight = "700";
+      button.setAttribute("disabled", "true");
+      flag = !flag;
+      count++;
+      if (count == 8) {
+        alert("Game over!");
+        location.reload();
+      }
+    }
+  </script>
+</body>
+
+</html>

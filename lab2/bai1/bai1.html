@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Họ Tên - Mã Sinh Viên</title>
+  <style>
+    body {
+      background-color: #87CEFA;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 450px;
+      height: 250px;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 200px;
+      background-color: white;
+    }
+
+    .container h4 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .container img {
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    .container .thongtin {
+      display: flex;
+    }
+
+    .container .tr {
+      margin-left: 50px;
+    }
+
+    .container .tt {
+      margin-top: 15px;
+      margin-left: 50px;
+    }
+  </style>
+  <script>
+    function tinhtuoi(ns) {
+      var td = new Date();
+      var n = td.getFullYear();
+      if (ns > 2022) {
+        alert("Lỗi");
+      }
+      return n - ns;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <img src="48370937_512020785978300_6710301253655592960_n.png" alt="" width="100px" height="40px">
+    <h4>Thông tin sinh viên</h4>
+    <div class="thongtin">
+      <div class="tr">
+        <p><span>Họ và tên :</span>
+          <p><span>Năm sinh :</span>
+            <p><span>Tuổi :</span>
+      </div>
+      <div class="tt">
+        <b><span id="ht"></span></b></p>
+        <b><span id="ns"></span></b></p>
+        <b><span id="t"></span></b></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    var ht = prompt("Nhập tên: ");
+    var ns = prompt("Nhập năm sinh: ");
+    var t = tinhtuoi(ns);
+    document.getElementById("ht").innerHTML = ht;
+    document.getElementById("ns").innerHTML = ns;
+    document.getElementById("t").innerHTML = t;
+  </script>
+</body>
+
+</html>

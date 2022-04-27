@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - PS21572</title>
+  <style>
+    .container {
+      width: 1140px;
+      margin: auto;
+      border: 1px solid darkgrey;
+    }
+
+    header {
+      background-color: darkolivegreen;
+      height: 120px;
+      position: relative;
+      text-align: right;
+      color: yellow;
+      font-size: 24px;
+    }
+
+    main {
+      background-color: darkseagreen;
+      min-height: 400px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: darkslategray;
+      height: 100px;
+    }
+
+    button {
+      border: none;
+      height: 50px;
+      width: 100px;
+      margin: 50px 520px;
+      background-color: aqua;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <span id="dongho" onclick="startstopDH()">Đồng Hồ</span>
+    </header>
+    <main>
+      <span id="loichao"></span><br>
+      <button onclick="location.reload();">Nạp lại</button>
+    </main>
+    <footer>
+      <div class="footer" style="text-align: center; color: yellow;">
+        <p><a href="https://tung0101.github.io/Profile/"
+            style="text-decoration: none; font-size: 18px; color: yellow;">Nguyễn Doãn Tùng</a> - PS21572 <br>
+          tungndps21572@fpt.edu.vn <br>
+        </p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    var dh = null;
+
+    function tg() {
+      var d = new Date();
+      var h = d.getHours();
+      var m = d.getMinutes();
+      var s = d.getSeconds();
+      document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+    }
+    dh = setInterval("tg()", 1000);
+
+    function startstopDH() {
+      if (dh == null) dh = setInterval("tg()", 1000);
+      else {
+        clearInterval(dh);
+        dh = null;
+      }
+    }
+
+    function loichao() {
+      document.getElementById("loichao").innerHTML = "Tôi là Nguyễn Doãn Tùng, Chào Bạn! Chúc an lành!";
+    }
+    setTimeout(loichao, 10000);
+  </script>
+</body>
+
+</html>

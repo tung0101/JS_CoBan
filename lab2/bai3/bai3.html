@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #48D1CC;
+    }
+    .container {
+      margin: 0 auto;
+      width: 450px;
+      height: 250px;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 200px;
+      background-color: white;
+    }
+    .container .tieude h3{
+      text-align: center;
+      color: #FFA500;
+    }
+    .container .p1{
+      text-align: center;
+    }
+    .container p{
+      margin-left: 40px;
+    }
+  </style>
+  <script>
+    var a = prompt("Mời nhập hệ số a: ");
+    var b = prompt("Mời nhập hệ số b: ");
+    var c = prompt("Mòi nhập hệ số c: ");
+    var delta = Math.pow(b, 2) - 4 * a * c;
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tieude">
+      <h3>
+        Giải Phương Trình Bậc 2
+      </h3>
+    </div>
+    <p class="p1">
+      <b>
+        <script>
+          document.write(a);
+          document.write("x<sup>2</sup> + ");
+          document.write(b);
+          document.write("x + ");
+          document.write(c);
+          document.write(" = 0");
+        </script>
+      </b>
+    </p>
+    <p class="p2">
+      <script>
+        if (delta < 0) {
+          document.write("<p> Phương trình vô nghiệm </p>");
+        } else if (delta == 0) {
+          var x0 = -b / (2 * a);
+          document.write("<p>Phương trình có nghiệm kép x0= " + x0 + "</p>");
+        } else {
+          var x1 = (-b + Math.sqrt(delta)) / (2 * a)
+          var x2 = (-b - Math.sqrt(delta)) / (2 * a)
+          document.write("<p>Phương trình có 2 nghiệm: </p>");
+          document.write("<p>x1= " + x1 + "</p>");
+          document.write("<p>x2= " + x2 + "</p>");
+        }
+      </script>
+    </p>
+
+  </div>
+</body>
+
+</html>

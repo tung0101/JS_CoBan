@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máy Tính</title>
+</head>
+
+<body>
+  <style>
+    body {
+      font-family: Roboto;
+      background: #373B44;
+      background: -webkit-linear-gradient(to right, #42f451, #373B44);
+      background: linear-gradient(to right, #42f460, #373B44);
+    }
+
+    .container {
+      width: 320px;
+      height: 520px;
+      background-color: #eaedef;
+      top: 20px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+    }
+
+    table {
+      margin: 0 auto;
+
+    }
+
+    td input {
+      width: 70px;
+      height: 70px;
+      font-size: 17px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tieude h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: red;
+    }
+
+    .tieude h3 {
+      color: blue;
+      text-align: center;
+    }
+
+    .ketqua {
+      text-align: right;
+      font-size: 40px;
+      margin-left: 15px;
+      margin-bottom: 5px;
+      width: 290px;
+      height: 100px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    #kq {
+      margin-top: 55px;
+    }
+  </style>
+  <div class="container">
+    <div class="tieude">
+      <h2>Máy Tính Javascript</h2>
+      <h3>Tác giả: Nguyễn Doãn Tùng</h3>
+    </div>
+    <div class="ketqua">
+      <div id="kq"></div>
+    </div>
+    <table class="container" style="width: 75px;height: 75px;">
+      <tr>
+        <td><input type="button" value="7" onclick="ganso(7)"></td>
+        <td><input type="button" value="8" onclick="ganso(8)"></td>
+        <td><input type="button" value="9" onclick="ganso(9)"></td>
+        <td><input type="button" value="+" onclick="ganso('+')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="ganso(4)"></td>
+        <td><input type="button" value="5" onclick="ganso(5)"></td>
+        <td><input type="button" value="6" onclick="ganso(6)"></td>
+        <td><input type="button" value="-" onclick="ganso('-')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="1" onclick="ganso(1)"></td>
+        <td><input type="button" value="2" onclick="ganso(2)"></td>
+        <td><input type="button" value="3" onclick="ganso(3)"></td>
+        <td><input type="button" value="x" onclick="ganso('*')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="0" onclick="ganso(0)"></td>
+        <td><input type="button" value="C" onclick="lamlai()"></td>
+        <td><input type="button" value="=" onclick="thuchien()"></td>
+        <td><input type="button" value="/" onclick="ganso('/')"></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    var a = "";
+
+    function ganso(n) {
+      a += n;
+      document.getElementById("kq").innerHTML = a;
+    }
+
+    function thuchien() {
+      document.getElementById("kq").innerHTML = (a + "=" + eval(a));
+    }
+
+    function lamlai() {
+      a = "";
+      document.getElementById("kq").innerHTML = a;
+    }
+  </script>
+</body>
+
+</html>

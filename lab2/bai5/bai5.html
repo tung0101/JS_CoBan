@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chu vi và Diện tích hình tròn</title>
+  <style>
+    body {
+      background-color: #87CEFA;
+    }
+
+    form {
+      margin: 0 auto;
+      width: 400px;
+      height: 150px;
+      border: 2px solid black;
+      border-radius: 20px;
+      margin-top: 200px;
+      background-color: #ffffff;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 350px;
+      height: 150px;
+    }
+
+    table th {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    const PI = 3.14;
+    var r = prompt("Nhập bán kính");
+
+    if (isNaN(r) == false) {
+      alert(r + " là một số");
+    } else {
+      alert(r + " Lỗi");
+    }
+    r = parseFloat(r);
+    var s = r * r * PI;
+    var c = r * 2 * PI;
+  </script>
+  <form action="">
+    <table>
+      <tr>
+        <th colspan="2">Chu vi và diện tích hình chữ nhật</th>
+      </tr>
+      <tr>
+        <td>Chu vi</td>
+        <td>
+          <script>
+            document.write(" <p><b> " + c + " </b></p>");
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Diện tích</td>
+        <td>
+          <script>
+            document.write(" <p><b> " + s + " <b></p>");
+          </script>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

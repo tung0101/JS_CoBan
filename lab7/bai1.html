@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+
+<style>
+  body {
+    background: url('bg.jpg') no-repeat;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin-top: 100px;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  .caption {
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    border: 1px solid aqua;
+    border-radius: 10px;
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(130deg, #74b9ff, #e66767);
+    margin: auto 150px;
+    border-radius: 50%;
+    background-size: 200% 200%;
+    animation: 2s linear infinite;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  h4 {
+    text-align: center;
+    text-transform: uppercase;
+
+  }
+
+  table {
+    margin-left: 50px;
+    font-size: 18px;
+  }
+
+  label {
+    color: black;
+  }
+
+  input {
+    height: 30px;
+    width: 300px;
+  }
+
+  .tile {
+    margin-top: 100px;
+  }
+</style>
+
+<body ng-app="b1">
+  <div class="container" ng-controller="hienthi">
+    <div class="box">
+      <div class="tile">
+        <label>Nhập họ và tên: </label> <br>
+        <input type="text" ng-model="hoten"><br>
+        <label>Nhập ngày sinh: </label> <br>
+        <input type="text" ng-model="ngaysinh"><br>
+        <label>Nhập giới tính: </label> <br>
+        <input type="text" ng-model="gender"><br>
+        <label>Nhập điểm: </label> <br>
+        <input type="text" ng-model="mark"> <br>
+      </div>
+    </div>
+    <div class="caption">
+      <h4>Thông tin sinh viên</h4>
+      <div class="anh">
+        <img src="{{photo}}">
+      </div>
+      <table>
+        <tr>
+          <td>Họ và tên: </td>
+          <td>{{hoten}}</td>
+        </tr>
+        <tr>
+          <td>Ngày sinh: </td>
+          <td>{{ngaysinh}}</td>
+        </tr>
+        <tr>
+          <td>Giới tính: </td>
+          <td>{{gender}}</td>
+        </tr>
+        <tr>
+          <td>Điểm: </td>
+          <td>{{mark}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+  app = angular.module("b1", []);
+  app.controller("hienthi", xuly);
+
+  function xuly($scope) {
+    $scope.photo = "fullhd.jpg"
+  }
+</script>
+
+</html>

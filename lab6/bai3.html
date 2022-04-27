@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #loi1,
+  #loi2,
+  #loi3,
+  #loi4 {
+    color: red;
+  }
+</style>
+
+<body>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <form name="frm1" onsubmit="return kiemtra();" class="col-6 mx-auto border border-primary">
+    <h4 class="m-0 p-2 text-center">THÊM NHÂN VIÊN</h4>
+    <div class="form-group">
+      <label> Họ Tên</label>
+      <input type="text" name="ht" class="form-control bg-warning">
+      <div id="loi1"></div>
+    </div>
+    <div class="form-group">
+      <label>Số CMND</label>
+      <input type="text" name="cmnd" class="form-control bg-primary">
+      <div id="loi2"></div>
+    </div>
+    <div class="form-group">
+      <label> Tỉnh</label>
+      <select name="tinh" class="form-control bg-info">
+        <option value="0">Chọn tỉnh</option>
+        <option value="1">TPHCM</option>
+        <option value="2">Hà nội</option>
+        <option value="3">Cần Thơ</option>
+      </select>
+      <div id="loi3"></div>
+    </div>
+    <div class="form-group">
+      <label> Thông tin bổ sung</label>
+      <textarea name="bosung" class="form-control bg-warning" rows="4"></textarea>
+      <div id="loi4"></div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" onclick="kiemtra()">Lưu Thông tin</button>
+    </div>
+  </form>
+  <script>
+    function kiemtra() {
+      var ht = document.frm1.ht.value;
+      var cmnd = document.frm1.cmnd.value;
+      var tinh = document.frm1.tinh.value;
+      var bosung = document.frm1.bosung.value;
+      if (ht.length < 3 || ht.length > 30) {
+        document.getElementById("loi1").innerHTML = "Họ tên phải từ 3 đến 30 ký tự <br>";
+      } else {
+        document.getElementById("loi1").innerHTML = "";
+      }
+      if (cmnd.length != 9) {
+        document.getElementById("loi2").innerHTML = "CMND phải đúng 9 ký tự <br>";
+      } else {
+        document.getElementById("loi2").innerHTML = "";
+      }
+      var s = parseInt(cmnd);
+      if (tinh == 0) {
+        document.getElementById("loi3").innerHTML = "Bạn chưa chọn tính <br>";
+      } else {
+        document.getElementById("loi3").innerHTML = "";
+      }
+      if (bosung.length < 50 || bosung.length > 1000) {
+        document.getElementById("loi4").innerHTML = "Hãy nhập thông tin bổ sung từ 50 đến 1000 ký tự";
+      } else {
+        document.getElementById("loi4").innerHTML = "";
+      }
+      return false;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - PS21572</title>
+  <style>
+    body {
+      background-color: #00FA9A;
+    }
+
+    .container {
+      margin: 200px auto;
+      width: 400px;
+      height: 100px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: #87CEFA;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 250px;
+      height: 100px;
+    }
+
+    table th {
+      padding: 0 20px;
+      margin: 0 auto;
+      font-size: 28px;
+    }
+
+    select {
+      width: 70px;
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <table>
+      <tr>
+        <th>Ngày</th>
+        <th>Tháng</th>
+        <th>Năm</th>
+      </tr>
+      <tr>
+        <th>
+          <select name="ngay" id="ngay">
+            <script>
+              for (var i = 1; i <= 31; i++) {
+                if (i == 1) {
+                  document.write("<option selected>" + i + "</option>");
+                } else {
+                  document.write("<option>" + i + "</option>");
+                }
+              }
+            </script>
+          </select>
+        </th>
+        <th>
+          <select name="thang" id="thang">
+            <script>
+              var i = 1;
+              while (i <= 12) {
+                if (i == 1) {
+                  document.write("<option selected>" + i + "</option>");
+                } else {
+                  document.write("<option>" + i + "</option>");
+                }
+                i++;
+              }
+            </script>
+          </select>
+        </th>
+        <th>
+          <select name="nam" id="nam">
+            <script>
+              var i = 1970;
+              do {
+                if (i == 2003) {
+                  document.write("<option selected>" + i + "</option>");
+                } else {
+                  document.write("<option>" + i + "</option>");
+                }
+                i++;
+              } while (i <= 2022);
+            </script>
+          </select>
+        </th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

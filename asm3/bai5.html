@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 5 - Form Đăng Ký thành Viên</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
+</head>
+<style>
+  body {
+    background-image: url('img/nen.jpg');
+    background-size: cover;
+  }
+
+  #form1 {
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px 40px;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+  }
+
+  #form1 #fs1 {
+    width: 385px;
+  }
+
+  #form1 #fs2 {
+    width: 385px;
+  }
+
+  #form1 fieldset {
+    border: 1px solid lightslategrey;
+    margin-top: 0;
+    border-radius: 5px;
+  }
+
+  #form1 #dangki {
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+  }
+
+  #form1 .txt {
+    width: 385px;
+    padding: 6px;
+    border: 1px solid lightslategrey;
+    background-color: whitesmoke;
+  }
+
+  #form1 .loi {
+    color: red;
+  }
+
+  input {
+    border-radius: 5px;
+  }
+</style>
+
+<body ng-app="b5" ng-controller="ctr1">
+  <form id="form1" name="frm">
+    <h2 style="text-align: center;">Đăng Ký Thành Viên</h2>
+    <p>
+      <label>Mã Sinh Viên:</label><br>
+      <input id="masv" ng-model="masv" type="text" required autocomplete="off" minlength="7" maxlength="7"
+        placeholder="PS21572" name="masv" class="txt">
+      <em class="loi" ng-if="frm.$dirty && frm.masv.$error.maxlength">Mã số sinh viên phải đún 7 kí tự</em>
+      <em class="loi" ng-if="frm.$dirty && frm.masv.$error.minlength">Mã số sinh viên phải đún 7 kí tự</em>
+      <em class="loi" ng-if="frm.masv.$touched && frm.masv.$error.required">Vui lòng nhập mã số sinh viên</em>
+    </p>
+    <p>
+      <label>Họ Và Tên:</label><br>
+      <input id="hoten" type="text" class="txt" placeholder="Nguyễn Văn A" ng-model="ten" required ng-maxlength="30"
+        name="ten">
+      <em ng-if="frm.$dirty && frm.ten.$error.maxlength" class="loi">Họ tên quá dài</em>
+      <em ng-if="frm.ten.$touched && frm.ten.$error.required" class="loi">Vui lòng nhập họ tên</em>
+    </p>
+    <p>
+      <label>Email:</label><br>
+      <input id="email" type="email" class="txt" placeholder="abc123@gmail.com" name="email" ng-model="mail" required
+        autocomplete="off" ng-pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <em class="loi" ng-if="frm.email.$touched && frm.email.$error.required">Vui Lòng nhập email</em>
+      <em class="loi" ng-if="frm.email.$touched && frm.email.$error.email">Email phải
+        ở dạng
+        admin@domain.com</em>
+    </p>
+    <p>
+      <fieldset id="fs1" name="fs1">
+        <legend>Giới Tính</legend>
+        <input type="radio" name="nn" value="Nam" ng-model="nam"><label>Nam</label>
+        <input type="radio" name="nn" value="Nữ" ng-model="nu"><label>Nữ</label>
+        <em ng-if="frm.fs1.$invalid || !nam && !nu" class="loi"><br>Vui lòng chọn giới tính</em>
+      </fieldset>
+    </p>
+    <p>
+      <fieldset id="fs2" name="fs2">
+        <legend>Sở Thích</legend>
+        <input type="checkbox" name="st" ng-model="ds"><label>Đọc sách</label>
+        <input type="checkbox" name="st" ng-model="dl"><label>Du lịch</label>
+        <input type="checkbox" name="st" ng-model="at"><label>Ẩm Thực</label>
+        <input type="checkbox" name="st" ng-model="am"><label>Âm Nhạc</label>
+        <input type="checkbox" name="st" ng-model="k"><label>Khác</label>
+        <em ng-if="frm.fs2.$invalid || !ds && !dl && !at && !am && !k" class="loi"><br>Vui lòng chọn sở thích</em>
+      </fieldset>
+    </p>
+    <p>
+      <label>Quốc Tịch:</label> <br>
+      <select class="txt" name="qt" style="border-radius: 5px; width: 400px;" ng-model="qt" required>
+        <option value="" selected disabled>Chọn Quốc Tịch</option>
+        <option value="1">Việt Nam</option>
+        <option value="1">Mỹ</option>
+        <option value="1">Campuchia</option>
+      </select>
+      <em ng-if="frm.qt.$invalid || !qt || qt==0" class="loi">Vui lòng chọn quốc tịch</em>
+    </p>
+    <p>
+      <label>Ghi Chú:</label> <br>
+      <textarea id="ghichu" cols="53" rows="5" ng-model="note" ng-minlength="10" required name="note"
+        style="border-radius: 5px;"></textarea>
+      <em class="loi" ng-if="frm.$dirty && frm.note.$error.minlength">Ghi chú phải ít nhất 10 ký tự</em>
+      <em class="loi" ng-if="frm.note.$touched && frm.note.$error.required">Vui lòng nhập nội dung</em>
+    </p>
+    <div class="button" style="text-align: center;">
+      <button type="button" ng-click="xuly()" ng-disabled="frm.$invalid" id="dangki">Đăng Kí</button>
+    </div>
+  </form>
+</body>
+<script>
+  app = angular.module("b5", []);
+  app.controller("ctr1", xuly);
+
+  function xuly($scope) {
+
+  };
+</script>
+
+</html>

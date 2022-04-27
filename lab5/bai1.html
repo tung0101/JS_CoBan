@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container {
+      border: 2px solid white;
+      width: 620px;
+      height: 620px;
+      margin: auto;
+      text-align: center;
+      background-color: #008080;
+    }
+
+    .container1 {
+      margin: 5px auto;
+      border: 2px solid white;
+      width: 600px;
+      height: 600px;
+      text-align: center;
+      background-color: #008080;
+    }
+
+    h2 {
+      color: white;
+      font-size: 32;
+    }
+
+    label {
+      color: white;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      color: black;
+      background-color: yellow;
+      height: 22px;
+      width: 60px;
+    }
+
+    input {
+      border: none;
+      height: 22px;
+      background-color: #48D1CC;
+    }
+
+    h3 {
+      color: white;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container1">
+      <h2 id="ten">IPHONE XS MAX 2019</h2>
+      <img src="bai1.png" alt="" height="400" width="450"> <br>
+      <label id="pro" data-price="1950">Số Lượng</label>
+      <input type="text" id="qty" value="1">
+      <button onclick="hienthi()">Tính</button>
+      <hr>
+      <h3>Name: <span id="name">?</span></h3>
+      <h3>Amount: <span id="amount">?</span></h3>
+    </div>
+  </div>
+  <script>
+    function hienthi() {
+      let tensp = document.querySelector("#ten").innerText;
+      let soluongsp = document.querySelector("#qty").value;
+      if (soluongsp < 0) {
+        alert('Lỗi');
+      }
+      if (isNaN(soluongsp) == true) {
+        alert("Lỗi");
+      }
+      if (soluongsp = !(int)) {
+        alert("Lỗi");
+      }
+      let giasp = document.querySelector("#pro").getAttribute("data-price");
+      let tinhtien = giasp * soluongsp;
+      document.querySelector("#name").innerText = tensp;
+      document.getElementById("amount").innerText = "$" + tinhtien;
+    }
+  </script>
+</body>
+
+</html>

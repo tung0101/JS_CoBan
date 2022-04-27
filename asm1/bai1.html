@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - Bài 1</title>
+  <style>
+    body {
+      background-color: aqua;
+    }
+
+    .container {
+      width: 600px;
+      margin: 0 auto;
+      background-color: #FF4500;
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      border: 2px solid white;
+      border-radius: 15px;
+    }
+
+    form input[id] {
+      width: 250px;
+      text-align: center;
+      padding: 6px 0;
+      border: 1px solid black;
+      background-color: blanchedalmond;
+    }
+
+    form button {
+      margin: 0 50px;
+      width: 120px;
+      height: 40px;
+    }
+
+    .nut {
+      border-radius: 5px;
+      background-color: #4169E1;
+      color: white;
+    }
+
+    .nutkhoa {
+      border-radius: 5px;
+      background-color: #FF69B4;
+      color: white;
+    }
+
+    #solangiai {
+      color: yellow;
+      margin-top: 10px;
+    }
+
+    #kq {
+      height: 200px;
+      margin: 10px 50px 0 50px;
+      border: 1px double white;
+    }
+
+    #dongho {
+      color: yellow;
+      font-style: italic;
+    }
+
+    .ptb2 {
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<!-- 
+Bài 1 
+giải Phương trình bậc 2 
+Nâng cấp : 
+random a, b, c trong khoảng từ -10 đến 10 
+Tính tổng 2 nghiệm khi phương trình có 2 nghiệm phân biệt 
+random a, b, c và in phương trình của a, b, c sau khi đã random 
+-->
+
+
+<body>
+  <div class="container">
+    <h3>Giải Phương Trình Bậc 2 </h3>
+    <!-- in ra phương trình sau khi random a, b, c -->
+    <div id="ptb2"></div>
+    <span>Số Lần Giải: <b id="solangiai">0</b></span>
+    <hr>
+    <form action="">
+      <p><label>Nhập số a</label> <input type="text" id="a"></p>
+      <p><label>Nhập số b:</label> <input type="text" id="b"></p>
+      <p><label>Nhập số c:</label> <input type="text" id="c"></p>
+      <button type="button" class="nutkhoa" disabled id="btngiai" onclick="ptb2.giai(); dem()"> Giải PT</button>
+      <button type="button" class="nut" id="btnchoso" onclick="choso()">Cho Số </button>
+    </form>
+    <div id="kq"></div>
+    <p id="dongho"></p>
+  </div>
+  <script>
+    function choso() {
+      // lần lượt hệ số a, b, c của phương trình được random từ -10 đến 10 
+      var a = -10 + Math.round(20 * Math.random());
+      var b = -10 + Math.round(20 * Math.random());
+      var c = -10 + Math.round(20 * Math.random());
+
+      document.getElementById("a").value = a;
+      document.getElementById("b").value = b;
+      document.getElementById("c").value = c;
+
+      // kiểm tra số a 
+      if (a > 0) {
+        a = " " + a;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else if (a < 0) {
+        a *= -1;
+        a = " - " + a;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else {
+        a = '';
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      }
+      // kiểm tra số b
+      if (b > 0) {
+        b = " + " + b;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else if (b < 0) {
+        b *= -1;
+        b = " - " + b;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else {
+        b = '+ ';
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      }
+      // kiểm tra số c
+      if (c > 0) {
+        c = " + " + c;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else if (c < 0) {
+        c *= -1;
+        c = " - " + c;
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      } else {
+        c = '';
+        var equa = a + "x<sup>2</sup>" + b + "x" + c + " = 0";
+        document.getElementById("ptb2").innerHTML = equa;
+      }
+      var btn = document.getElementById("btngiai");
+      btn.disabled = false;
+      btn.className = 'nut';
+    }
+  </script>
+  <script>
+    //  giải phương trình bậc 2
+    var ptb2 = {
+      giai: function () {
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        var c = document.getElementById("c").value;
+        if (a == 0) {
+          //ptb1
+          if (b == 0) {
+            if (c == 0) {
+              document.getElementById("kq").innerHTML = "<p> Vô Số Nghiệm </p>";
+            } else {
+              document.getElementById("kq").innerHTML = "<p> Vô Nghiệm </p>";
+            }
+          } else {
+            var x = -c / b;
+            str = `<p> Phương trình có nghiệm kép: ${x.toFixed(2)}</p>`;
+          }
+        } else {
+          var delta = b * b - 4 * a * c;
+          if (delta < 0) {
+            document.getElementById("kq").innerHTML = "<p> Vô Nghiệm </p>";
+          } else if (delta == 0) {
+            var x = -b / (2 * a);
+            str = `<p> Phương trình có nghiệm kép: ${x.toFixed(2)}</p>`;
+            document.getElementById("kq").innerHTML = str
+          } else {
+            var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            var x3 = x1 + x2;
+            var str = `<p>Phương trình có 2 nghiệm phân biệt</p>
+            <p>X<sub>1</sub> = ${x1.toFixed(2)}</p>
+            <p>X<sub>2</sub> = ${x2.toFixed(2)}</p>
+            <P>Tổng 2 nghiệm x1, x2 = ${x3.toFixed(2)}</p>`;
+            document.getElementById("kq").innerHTML = str;
+          }
+        }
+        btn = document.getElementById("btngiai");
+        btn.className = "nutkhoa";
+        btn.disabled = true;
+      }
+    }
+  </script>
+  <script>
+    var solangiai = null;
+
+    function dem() {
+      solangiai++;
+      document.getElementById("solangiai").innerHTML = solangiai;
+    }
+  </script>
+  <script>
+    function tg() {
+      var d = new Date();
+      var nam = d.getFullYear();
+      var thang = d.getMonth() + 1;
+      var ngay = d.getDate();
+      var gio = d.getHours();
+      var phut = d.getMinutes();
+      var giay = d.getSeconds();
+      var str = `Bây giờ là ${ngay}/${thang}/${nam} ${gio}:${phut}:${giay}`;
+      document.getElementById("dongho").innerHTML = str;
+    }
+    setInterval("tg()", 1000)
+  </script>
+</body>
+
+</html>

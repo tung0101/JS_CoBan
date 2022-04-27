@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chu vi diện tích hình chữ nhật</title>
+  <style>
+    body {
+      background-color: #87CEFA;
+    }
+
+    form {
+      margin: 0 auto;
+      width: 400px;
+      height: 150px;
+      border: 2px solid black;
+      border-radius: 20px;
+      margin-top: 200px;
+      background-color: #ffffff;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 350px;
+      height: 150px;
+    }
+
+    table th {
+      font-size: 18px;
+    }
+  </style>
+  <script>
+    var a = 30; // rộng
+    var b = 20; // dài
+    var x; // chu vi
+    var y; // diện tích
+  </script>
+
+</head>
+
+<body>
+  <script>
+    x = (a + b) * 2;
+    y = a * b;
+    console.log(x);
+    console.log(y);
+  </script>
+  <form action="">
+    <table>
+      <tr>
+        <th colspan="2">Chu vi và diện tích hình chữ nhật</th>
+      </tr>
+      <tr>
+        <td>Chu vi</td>
+        <td>
+          <script>
+            document.write(" <p><b> " + x + " </b></p>");
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>Diện tích</td>
+        <td>
+          <script>
+            document.write(" <p><b> " + y + " <b></p>");
+          </script>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+
+</html>

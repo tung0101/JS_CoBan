@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+  body {
+    background-color: #FFA500;
+  }
+
+  .container {
+    margin: 100px auto;
+    height: 400px;
+    width: 1000px;
+    border: 1px solid #FFFFE0;
+    border-radius: 10px;
+    background-color: #FFFFE0;
+  }
+</style>
+
+<body ng-app="b2">
+  <div class="container" ng-controller="hienthi">
+    <form action="">
+      <div class="form-group">
+        <label for="">Chiều Dài</label>
+        <input type="text" name="dai" ng-model="dai" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Chiều Rộng</label>
+        <input type="text" name="rong" ng-model="rong" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Chu Vi</label>
+        <span class="form-control">{{chuvi}}</span>
+      </div>
+      <div class="form-group">
+        <label for="">Diện Tích</label>
+        <span class="form-control">{{dientich}}</span>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-warning" type="button" ng-click="tinhtoan();">Tính Toán</button>
+      </div>
+    </form>
+    <script>
+      app = angular.module("b2", []);
+      app.controller("hienthi", xuly);
+
+      function xuly($scope) {
+        $scope.tinhtoan = function () {
+          var d = parseFloat($scope.dai);
+          var r = parseFloat($scope.rong);
+          $scope.chuvi = (d + r) * 2;
+          $scope.dientich = (d * r);
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>

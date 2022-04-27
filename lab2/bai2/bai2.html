@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 1140px;
+      margin: 0 auto;
+      border: 1px solid darkgrey;
+    }
+
+    header {
+      background: #00FFFF;
+      height: 120px;
+      position: relative;
+    }
+
+    main {
+      background: #66CDAA;
+      min-height: 400px;
+    }
+
+    footer {
+      background: #FFA07A;
+      height: 100px;
+      margin-top: -20px;
+    }
+
+    #chao {
+      color: deeppink;
+      font-weight: bold;
+      font-style: italic;
+      position: absolute;
+      font-size: 26px;
+      right: 5px;
+      bottom: 5px;
+    }
+
+    main {
+      height: 400px;
+      width: 1140px;
+      margin-top: -30px;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    var hoten = "Nguyễn Doãn Tùng";
+    var mssv = "PS21572";
+    var email = "tungndps21572@fpt.edu.vn";
+    var ngaysinh = "01/01/2003";
+  </script>
+</head>
+
+<body>
+  <script>
+    var n = new Date();
+    var gio = n.getHours();
+    if (gio < 12) document.write("Chào Buổi Sáng");
+    else document.write("Chào Buổi Chiều");
+  </script>
+  <div class="container">
+    <header>
+      <div id="chao">Xin là xin ... chào thầy</div>
+    </header>
+    <main>
+      <div class="cauhoi">
+        <h2>
+          Javascript có thể làm gì ?
+        </h2>
+        <p>
+          <li>Thêm các thành phần động vào trang web như slide show, carousel.</li>
+          <li>
+            Tạo các hiệu ứng chuyển động cho hình ảnh, text…trong trang. Ví dụ các hiệu ứng ẩn hiện hình, đổi hình khi đưa chuột
+            vào. <br>
+          </li>
+          <li>
+            JavaScript có thể dùng viết game một số tựa game từ JavaScript: <br>
+            https://thesudoku.com/ <br>
+            https://www.w3schools.com/graphics/game_intro.asp <br>
+          </li>
+          <li>
+            Kiểm tra tình hợp lệ cửa dữ liệu người dùng (trong form) đã nhập đúng chưa hay đã còn bỏ trống ô nhập nào.
+            Ví dụ form đăng ký của facebook <br>
+          </li>
+        </p>
+      </div>
+    </main>
+    <footer style="text-align: center;">
+      <p><span>Họ tên: <b id="hoten">
+            <script>
+              document.write(hoten)
+            </script>
+          </b> </span></p>
+      <p><span>Mã số sinh viên: <b id="mssv">
+            <script>
+              document.write(mssv)
+            </script>
+          </b> </span></p>
+      <p><span>Email: <b id="email">
+            <script>
+              document.write(email)
+            </script>
+          </b> </span></p>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #48D1CC;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 450px;
+      height: 250px;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 200px;
+      background-color: white;
+    }
+    .container h3{
+      text-align: center;
+      text-transform: uppercase;
+      color: aqua;
+    }
+    .container p {
+      margin-top: 20px;
+      margin-left: 30px;
+      color: yellow;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .container p span{
+      color: palevioletred;
+      font-size: 30px;
+    }
+    .container .f5 p{
+      margin-left: 30px;
+      color: palevioletred;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  </style>
+  <script>
+    var slx = localStorage.getItem('soLanXem');
+    if (slx == null) slx = 0;
+    slx++;
+    localStorage.setItem('soLanXem', slx);
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Lưu biến vào localStorage</h3>
+    <p>Bạn đã xem trang này:
+        <script>
+          document.write('<span class = "slx">' + slx + '</span>')
+        </script> lần
+    </p>
+    <div class="f5">
+      <p>
+        Gõ phím F5 nạp lại trang để xem kết quả
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

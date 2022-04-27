@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - Bài 3</title>
+  <style>
+    .container {
+      width: 800px;
+      margin: auto;
+    }
+
+    #mucgia {
+      padding: 5px 0;
+      width: 150px;
+      text-align: center;
+      background-color: #E0FFFF;
+    }
+
+    #table_SP {
+      width: 100%;
+      padding: 20px;
+      background-color: white;
+      font-size: 20px;
+    }
+
+    #table_SP tr {
+      background-color: #00BFFF;
+    }
+
+    #table td,
+    th {
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    #table_SP [name='soluong'] {
+      width: 80px;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .gia {
+      text-align: center;
+    }
+
+    .sl {
+      margin-left: 80px;
+    }
+
+    #table_SP tr:first-child {
+      background-color: #FF6347;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 style="text-align: center;">Bán Hàng</h2>
+    <div class="mucgia" style="text-align: center; margin-bottom: 20px;">
+      <select id="mucgia" onchange="doimucgia()">
+        <option value="-1">Chọn mức giá</option>
+        <option value="200">Đến 200</option>
+        <option value="400">Đến 400</option>
+        <option value="600">Đến 600</option>
+        <option value="800">Đến 800</option>
+      </select>
+    </div>
+    <table border="1" id="table_SP">
+      <tr>
+        <th colspan="2">Hàng Hóa</th>
+        <th>Đơn Giá</th>
+        <th>Số Lượng</th>
+        <th>Thành Tiền</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Iphone11</td>
+        <td class="gia" name="gia">700</td>
+        <td> <input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Samsung</td>
+        <td class="gia" name="gia">400</td>
+        <td><input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Nokia</td>
+        <td class="gia" name="gia">100</td>
+        <td><input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Sony Xperia</td>
+        <td class="gia" name="gia">450</td>
+        <td><input class="sl" name="soluong" value="0" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Motorila</td>
+        <td class="gia" name="gia">180</td>
+        <td><input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Oppo</td>
+        <td class="gia" name="gia">600</td>
+        <td><input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chon"></td>
+        <td>Bphone</td>
+        <td class="gia" name="gia">90</td>
+        <td><input class="sl" value="0" name="soluong" disabled></td>
+        <td name="thanhtien"></td>
+      </tr>
+      <tr class="tong">
+        <th colspan="4">Tổng</th>
+        <td id="tinhtong"><b></b></td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

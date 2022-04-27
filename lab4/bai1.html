@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - PS21572</title>
+  <script>
+    var ptb2 = new Object();
+    ptb2.a = null;
+    ptb2.b = null;
+    ptb2.c = null;
+    ptb2.nhap = function () {
+      do {
+        this.a = window.prompt("Nhập số a: ");
+      } while (isNaN(this.a) == true);
+      do {
+        this.b = window.prompt("Nhập số b: ");
+      } while (isNaN(this.b) == true);
+      do {
+        this.c = window.prompt("Nhập số c: ");
+      } while (isNaN(this.c) == true);
+      str = this.a + "x<sup>2</sup> + " + this.b + "x + " + this.c + " =0";
+      document.getElementById("pt").innerHTML = str;
+    }
+  </script>
+  <style>
+    body {
+      background-color: #40E0D0;
+    }
+
+    .container {
+      width: 600px;
+      height: 400px;
+      border: 1px solid black;
+      margin: 100px auto;
+      border-radius: 20px;
+      background-color: white;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: blue;
+      font-size: 28px;
+    }
+
+    .nut button {
+      margin: 20px 20px;
+      border: none;
+      color: white;
+      background-color: aqua;
+      width: 100px;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Giải Phương Trình Bậc 2</h2>
+    <table>
+      <tr>
+        <th>
+          <div id="pt" style="color: black; font-size: 18px;">Phương Trình</div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div id="kq" style="height: 180px;">Kết quả</div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div class="nut" style="margin:0px 150px;">
+            <button onclick="ptb2.nhap()">Nhập A B C</button>
+            <button onclick="ptb2.giai()">Giải PT</button>
+          </div>
+        </th>
+      </tr>
+    </table>
+  </div>
+  <script>
+    ptb2.giai = function () {
+      var delta = this.b * this.b - 4 * this.a * this.c;
+      if (delta < 0) {
+        document.getElementById("kq").innerHTML = "<p> Vô Nghiệm </p>";
+      } else if (delta == 0) {
+        var x = -this.b / (2 * this.a);
+        str = `<p> Phương trình có nghiệm kép: ${x.toFixed(2)}</p>`;
+        document.getElementById("kq").innerHTML = str
+      } else {
+        var x1 = (-this.b + Math.sqrt(delta)) / (2 * this.a);
+        var x2 = (-this.b - Math.sqrt(delta)) / (2 * this.a);
+        var x3 = x1 + x2;
+        var str = `<p>Phương trình có 2 nghiệm phân biệt</p>
+            <p>X<sub>1</sub> = ${x1.toFixed(2)}</p>
+            <p>X<sub>2</sub> = ${x2.toFixed(2)}</p>
+            <P>Tổng 2 nghiệm x1, x2 = ${x3.toFixed(2)}</p>`;
+        document.getElementById("kq").innerHTML = str;
+      }
+    }
+  </script>
+</body>
+
+</html>

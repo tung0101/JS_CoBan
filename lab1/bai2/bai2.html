@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2 -Lab 1</title>
+  <script src="bai2.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form action="">
+    <div class="container">
+      <table>
+        <tr>
+          <th><img src="48370937_512020785978300_6710301253655592960_n.png" alt="" style="width: 100px; height: 40px;">
+          </th>
+          <th colspan="2">
+            <h2 style="text-align: left;">Thông tin cá nhân</h2>
+          </th>
+        </tr>
+        <tr>
+          <td rowspan="5"><img src="z3249339823483_98aefd867c4c3937959c471239de48f0.jpg" alt=""
+              style="width: 110px; height: 140px;"></td>
+        </tr>
+        <tr>
+          <td>
+            <p><span>Họ và tên: </span></p>
+          </td>
+          <td>
+            <b id="hoten">
+              <script>
+                document.write(hoten);
+              </script>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><span>Mã SV: </span></p>
+          </td>
+          <td>
+            <b id="masv">
+              <script>
+                document.write(masv);
+              </script>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Ngành Học:</span></td>
+          <td><b id="nganh">
+              <script>
+                document.write(nganh);
+              </script>
+            </b></td>
+        </tr>
+        <tr>
+          <td>
+            <p><span> Ngày sinh: </span></p>
+          </td>
+          <td>
+            <b id="ns">
+              <script>
+                document.getElementById("ns").innerHTML = ngaysinh
+              </script>
+            </b>
+          </td>
+        </tr>
+        </td>
+      </table>
+    </div>
+  </form>
+</body>
+
+</html>

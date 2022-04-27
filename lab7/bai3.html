@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 3</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+  body {
+    background-color: #40E0D0;
+  }
+
+  form {
+    margin: 50px auto;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  label {
+    font-size: 18px;
+  }
+</style>
+
+<body ng-app="b3" ng-controller="ctr1">
+  <form name="frm" class="col-5 mx-auto border border-primary">
+    <div class="form-group">
+      <label>Tên SP</label>
+      <input name="tensp" class="form-control bg-primary" ng-model="tensp" required minlength="2" maxlength="30">
+      <em ng-if="frm.tensp.$invalid" class="text-danger h6">Nhập tên sản phẩm từ 2 đến 30 ký tự</em>
+    </div>
+    <div class="form-group">
+      <label>Số lượng</label>
+      <input name="soluong" class="form-control bg-warning" ng-model="soluong" type="number" min="1">
+      <em ng-if="frm.soluong.$invalid || soluong>100" class="text-danger h6">Nhập số từ 1 đến 100</em>
+    </div>
+    <div class="form-group">
+      <label>Nhà sản xuất</label>
+      <select name="nsx" class="form-control bg-secondary text-white" ng-model="nsx">
+        <option value="0">Chọn NSX</option>
+        <option value="1">Samsung</option>
+        <option value="2">Toshiba</option>
+        <option value="3">HTC</option>
+      </select>
+      <em ng-if="!nsx || nsx==0" class="text-danger h6">Hãy chọn một nhà sản xuất</em>
+    </div>
+    <div class="form-group">
+      <label>Tình trạng</label>
+      <fieldset class="border border-secondary p-3">
+        <input name="tinhtrang" type="radio" value="1" ng-model="tinhtrang"> Hàng cũ &nbsp;
+        <input name="tinhtrang" type="radio" value="2" ng-model="tinhtrang"> Hàng mới
+        <em ng-if="!tinhtrang" class="text-danger h6"><br>Hàng cũ hay mới?</em>
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <label>Màu sắc</label>
+      <fieldset class="border border-secondary p-3">
+        <input value="do" type="checkbox" ng-model="maudo"> Đỏ &nbsp;
+        <input value="den" type="checkbox" ng-model="mauden"> Đen &nbsp;
+        <input value="trang" type="checkbox" ng-model="mautrang"> Trắng
+        <em ng-if="!maudo && !mauden && !mautrang " class="text-danger h6"><br>Màu gì vậy?</em>
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-info">Nhập sản phẩm</button>
+    </div>
+  </form>
+</body>
+<script>
+  app = angular.module("b3", []);
+  app.controller("ctr1", xuly);
+
+  function xuly($scope) {
+
+  }
+</script>
+
+</html>

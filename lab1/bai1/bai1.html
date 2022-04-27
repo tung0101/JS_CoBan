@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1 -Lab 1</title>
+  <script>
+    var hoten = "Nguyễn Doãn Tùng";
+    var masv = "PS21572";
+    var nganh = "Thiết kế trang web / Web Engineering"
+    var ngaysinh = "01/01/2003";
+  </script>
+  <style>
+    .container{
+      width: 1400px;
+      margin: 0 auto;
+    }
+    b{
+      font-size: 14px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Thông tin cá nhân</h2>
+    <p><span>Họ tên: <b id="hoten">
+          <script>
+            document.write(hoten)
+          </script>
+        </b> </span></p>
+    <p><span>Mã SV: <b id="masv">
+          <script>
+            document.write(masv);
+          </script>
+        </b> </span></p>
+        <p><span>Ngành Học: <b id="nganh">
+          <script>
+            document.write(nganh);
+          </script>
+        </b> </span></p>
+
+    <p><span> Ngày sinh: <b id="ns">
+          <script>
+            document.getElementById("ns").innerHTML = ngaysinh
+          </script>
+        </b> </span></p>
+  </div>
+
+</body>
+
+</html>

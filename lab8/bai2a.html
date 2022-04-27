@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2 - Đồng Hồ</title>
+</head>
+<style>
+  body {
+    background-color: #FA8072;
+  }
+
+  #dongho {
+    font-size: 32px;
+    margin: 50px auto;
+    border: 1px solid white;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 30px white;
+  }
+
+  .box1 {
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button {
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    box-shadow: 0 0 30px white;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <div id="dongho"></div>
+    </div>
+    <div class="box1">
+      <button type="button" onclick="startDH()">Start</button>
+      <button type="button" onclick="stopDH()">Stop</button>
+      <button type="button" onclick="xembaihoc()">Xem bài học</button>
+    </div>
+  </div>
+</body>
+<script>
+  var dh = null;
+
+  function tg() {
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+  }
+  dh = setInterval("tg()", 1000);
+
+  function startDH() {
+    if (dh == null) dh = setInterval("tg()", 1000);
+  }
+
+  function stopDH() {
+    clearInterval(dh);
+    dh = null;
+  }
+
+  function xembaihoc() {
+    window.location.href = 'https://longnv.name.vn/lap-trinh-javascript'
+  }
+</script>
+
+</html>

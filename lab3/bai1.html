@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thực Hiện Phép Tính</title>
+  <script>
+    var so1;
+    do {
+      so1 = prompt("Mời nhập số thứ nhất: ");
+    } while (isNaN(so1) == true);
+    var so2;
+    do {
+      so2 = prompt("Mời nhập số thứ 2: ");
+    } while (isNaN(so2) == true);
+    so1 = Number(so1);
+    so2 = Number(so2);
+    var pheptinh = prompt("Nhập phép tính: ");
+  </script>
+  <style>
+    body {
+      background-color: #40E0D0;
+    }
+
+    .container {
+      width: 500px;
+      height: 250px;
+      margin: 200px auto;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .container h3 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #00008B;
+    }
+
+    .container p {
+      font-size: 20px;
+      font-weight: 700;
+      color: #00008B;
+      margin-top: 20px;
+      margin-left: 30px;
+    }
+
+    form {
+      margin-left: 25px;
+    }
+
+    .pheptinh input {
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      border-radius: 20px;
+      margin-left: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Xin Mời Thực Hiện Phép Tính</h3>
+    <p>
+      <script>
+        switch (pheptinh) {
+          case '+':
+            var kq = so1 + so2;
+            document.write("<p> Kết quả: " + so1 + " + " + so2 + " là " + kq + "</p>");
+            break;
+          case '-':
+            var kq = so1 - so2;
+            document.write("<p> Kết quả: " + so1 + " - " + so2 + " là " + kq + "</p>");
+            break;
+          case '*':
+            var kq = so1 * so2;
+            document.write("<p> Kết quả: " + so1 + " * " + so2 + " là " + kq + "</p>");
+            break;
+          case '/':
+            var kq = so1 / so2;
+            document.write("<p> Kết quả: " + so1 + " / " + so2 + " là " + kq + "</p>");
+            break;
+          default:
+            document.write("phép tính hợp lệ");
+        }
+      </script>
+    </p>
+  </div>
+
+</body>
+
+</html>

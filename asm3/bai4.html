@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Doãn Tùng - Bài 4</title>
+  <style>
+    body {
+      background-image: url('img/nen.jpg');
+      background-size: cover;
+    }
+
+    #form1 {
+      border-radius: 10px;
+      width: 400px;
+      margin: 0 auto;
+      padding: 10px 40px;
+      background-color: whitesmoke;
+      border: 1px solid whitesmoke;
+    }
+
+    #form1 #fs1 {
+      width: 385px;
+    }
+
+    #form1 #fs2 {
+      width: 385px;
+    }
+
+    #form1 fieldset {
+      border: 1px solid lightslategrey;
+      margin-top: 0;
+      border-radius: 5px;
+    }
+
+    #form1 #dangki {
+      width: 100px;
+      height: 40px;
+      border: none;
+      background-color: royalblue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    #form1 .txt {
+      width: 385px;
+      padding: 6px;
+      border: 1px solid lightslategrey;
+      background-color: whitesmoke;
+    }
+
+    #form1 .loi {
+      width: 385px;
+      padding: 6px;
+      border: 1px solid red;
+      background-color: yellow;
+    }
+
+    input {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form1">
+    <h2 style="text-align: center;">Đăng Ký Thành Viên</h2>
+    <p>
+      <label>Mã Sinh Viên: </label><br>
+      <input id="masv" type="text" class="txt" placeholder="PS12345">
+      <div id="mssv" style="color: red;"></div>
+    </p>
+    <p>
+      <label>Họ Và Tên: </label><br>
+      <input id="hoten" type="text" class="txt" placeholder="Nguyễn Văn A">
+      <div id="ht" style="color: red;"></div>
+    </p>
+    <p>
+      <label>Email: </label><br>
+      <input id="email" type="email" class="txt" placeholder="abc123@gmail.com">
+      <div id="em" style="color: red;"></div>
+    </p>
+    <p>
+      <fieldset id="fs1">
+        <legend>Giới Tính</legend>
+        <input type="radio" name="nn" value="Nam"><label>Nam</label>
+        <input type="radio" name="nn" value="Nữ"><label>Nữ</label>
+      </fieldset>
+      <div id="gt" style="color: red; margin-top: 15px;"></div>
+    </p>
+    <p>
+      <fieldset id="fs2">
+        <legend>Sở Thích</legend>
+        <input type="checkbox" name="st"><label>Đọc sách</label>
+        <input type="checkbox" name="st"><label>Du lịch</label>
+        <input type="checkbox" name="st"><label>Ẩm Thực</label>
+        <input type="checkbox" name="st"><label>Âm Nhạc</label>
+        <input type="checkbox" name="st"><label>Khác</label>
+      </fieldset>
+      <div id="st" style="color: red; margin-top: 15px;"></div>
+    </p>
+    <p>
+      <label>Quốc Tịch: </label> <br>
+      <select id="quoctich" class="txt" style="border-radius: 5px; width: 400px;">
+        <option value="0">Chọn Quốc Tịch</option>
+        <option value="1">Việt Nam</option>
+        <option value="2">Mỹ</option>
+        <option value="3">Campuchia</option>
+      </select>
+      <div id="qt" style="color: red;"></div>
+    </p>
+    <p>
+      <label>Ghi Chú:</label> <br>
+      <textarea id="ghichu" cols="53" rows="5" style="border-radius: 5px;"></textarea>
+      <div id="gc" style="color: red;"></div>
+    </p>
+    <div class="button" style="text-align: center;">
+      <button type="button" onclick="kiemtra()" id="dangki">Đăng Kí</button>
+    </div>
+
+  </form>
+</body>
+<script>
+  function kiemtra() {
+    let loi = " ";
+    let check = true;
+    // kiểm tra mã sinh viên
+    var masv = document.getElementById("masv");
+    if (masv.value == "") {
+      masv.className = "loi";
+      document.getElementById("mssv").innerHTML = "Mã sinh viên không được bỏ trống <br>";
+      check = false;
+    } else if (masv.value.length != 7) {
+      masv.className = "loi";
+      document.getElementById("mssv").innerHTML = "Mã sinh viên không đúng 7 ký tự<br>";
+      check = false;
+    } else {
+      masv.className = "txt";
+      document.getElementById("mssv").innerHTML = " ";
+    }
+    // kiểm tra họ tên
+    var hoten = document.getElementById("hoten");
+    if (hoten.value == "") {
+      hoten.className = "loi";
+      document.getElementById("ht").innerHTML = "Họ và tên không được bỏ trống <br>";
+      check = false;
+    } else if (hoten.value.length > 30) {
+      hoten.className = "loi";
+      document.getElementById("ht").innerHTML = "Họ tên quá dài <br>";
+      check = false;
+    } else {
+      hoten.className = "txt";
+      document.getElementById("ht").innerHTML = " ";
+    }
+    // kiểm tra email
+    var mail = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+    var email = document.getElementById("email").value;
+    var em = document.getElementById("email");
+    if (em.value == "") {
+      em.className = "loi";
+      document.getElementById("em").innerHTML = "Email không được bỏ trống";
+    } else if (mail.test(email)) {
+      email.className = "txt";
+      document.getElementById("em").innerHTML = " ";
+    } else {
+      email.className = "loi";
+      document.getElementById("em").innerHTML = "Email không hợp lệ";
+    }
+    // kiểm tra giới tính
+    var dem = 0;
+    var arr_phai = document.getElementsByName("nn");
+    for (var i = 0; i < arr_phai.length; i++) {
+      if (arr_phai[i].checked) dem++;
+    }
+    if (dem == 0) {
+      document.getElementById("fs1").className = "loi";
+      document.getElementById("gt").innerHTML = "Phải chọn giới tính<br>";
+      check = false;
+    } else {
+      document.getElementById("fs1").className = "";
+      document.getElementById("gt").innerHTML = " ";
+    }
+    // kiểm tra sở thích
+    arr_sothich = document.getElementsByName("st");
+    var dem = 0;
+    for (var i = 0; i < arr_sothich.length; i++) {
+      if (arr_sothich[i].checked) dem++;
+    }
+    if (dem == 0) {
+      document.getElementById("fs2").className = "loi";
+      document.getElementById("st").innerHTML = "Phải chọn ít nhất 1 sở thích <br>";
+      check = false;
+    } else {
+      document.getElementById("fs2").className = "";
+      document.getElementById("st").innerHTML = " ";
+    }
+    // kiểm tra quốc tịch
+    var qt = document.getElementById("quoctich");
+    if (qt.value == 0) {
+      qt.className = "loi";
+      document.getElementById("qt").innerHTML = "Phải chọn quốc tịch<br>";
+      check = false;
+    } else {
+      qt.className = "txt";
+      document.getElementById("qt").innerHTML = " ";
+    }
+    // Kiểm tra ghi chú
+    var gc = document.getElementById('ghichu');
+    if (gc.value == "") {
+      gc.className = "loi";
+      document.getElementById("gc").innerHTML = "Ghi chú không được bỏ trống <br>";
+      check = false;
+    } else if (gc.value.length > 200) {
+      gc.className = "loi";
+      document.getElementById("gc").innerHTML = "Ghi chú phải dưới 200 kí tự <br>";
+      check = false;
+    } else {
+      gc.className = "txt";
+      document.getElementById("gc").innerHTML = " ";
+    }
+    if (check == true) {
+      alert("Xin chúc mừng bạn đã đăng ký thành công");
+    }
+    return check;
+  }
+</script>
+
+</html>

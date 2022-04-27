@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Doãn Tùng - Bài 2</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #FFDAB9;
+            font-family: arial;
+        }
+
+        .container {
+            width: 1100px;
+            height: 600px;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 1px solid #AFEEEE;
+            background-color: #AFEEEE;
+        }
+
+        #slide h2 {
+            text-align: center;
+            color: tomato;
+            font-size: 24px;
+        }
+
+        #slide {
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        #slide img {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #slide #dem {
+            text-align: center;
+            top: 97%;
+            left: 50%;
+            position: absolute;
+            margin: 0;
+            padding: 10px 0;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        #slide #mota {
+            text-align: center;
+            width: 170px;
+            height: 40px;
+            position: absolute;
+            color: rgb(255, 51, 0);
+            font-weight: bold;
+            font-size: 32px;
+            top: 50%;
+            left: 40%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0.8;
+            display: block;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="slide">
+            <h2>Album Ảnh Làng Quê Việt Nam</h2>
+            <img id="hinh" src="img/hinh1.jpg">
+            <p id="dem">1/7</p>
+            <div class="dieuhuong">
+                <i class='bx bx-chevron-left' onclick="back()"
+                    style="position: absolute; top: 55%; left: 30px; color: white; font-size: 40px;"></i>
+                <i class='bx bx-chevron-right' onclick="next()"
+                    style="position: absolute; top: 55%; left: 930px; color: white; font-size: 40px;"></i>
+            </div>
+            <span id="mota">Bắc Ninh</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    var arr = [{
+            url: "hinh1.jpg",
+            ten: "Bắc Ninh",
+            so: 1
+        },
+        {
+            url: "hinh2.jpg",
+            ten: "Ninh Bình",
+            so: 2
+        },
+        {
+            url: "hinh3.jpg",
+            ten: "Huế",
+            so: 3
+        },
+        {
+            url: "hinh4.jpg",
+            ten: "Hà Nội",
+            so: 4
+        },
+        {
+            url: "hinh5.jpg",
+            ten: "Bắc Cạn",
+            so: 5
+        },
+        {
+            url: "hinh6.jpg",
+            ten: "Hải Phòng",
+            so: 6
+        },
+        {
+            url: "hinh7.jpg",
+            ten: "Sài Gòn",
+            so: 7
+        },
+    ];
+    var i = 0;
+
+    function next() {
+        i++;
+        if (i >= arr.length) {
+            i = 0;
+        }
+        document.getElementById("dem").innerHTML = arr[i].so + "/7";
+        document.getElementById("hinh").src = "img/" + arr[i].url;
+        document.getElementById("mota").innerHTML = arr[i].ten;
+    }
+
+    function back() {
+        i--;
+        if (i < 0) {
+            i = arr.length - 1;
+        }
+        document.getElementById("dem").innerHTML = arr[i].so + "/7";
+        document.getElementById("hinh").src = "img/" + arr[i].url;
+        document.getElementById("mota").innerHTML = arr[i].ten;
+    }
+    setInterval("next()", 3000);
+</script>

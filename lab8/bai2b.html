@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2 - Xem bài học</title>
+</head>
+<style>
+  fieldset {
+    background-color: white;
+    border-radius: 5px;
+    height: 65px;
+    width: 515px;
+    margin: 100px auto;
+    border: 2px solid darkgrey;
+  }
+
+  select {
+    margin: 0 auto;
+    height: 30px;
+    width: auto;
+    color: white;
+    background-color: darkblue;
+  }
+
+  button {
+    height: 30px;
+    border: none;
+    color: black;
+    background-color: darkgoldenrod;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <fieldset>
+      <legend>Bài học</legend><br>
+      <div class="box">
+        <select name="" id="link">
+          <option value="0">Chọn bài học</option>
+          <option value="1">Bài 1: Javascript là gì</option>
+          <option value="2">
+            Bài 2: Biến, Kiểu Dữ Liệu, Toán Tử Và Biểu Thức trong Javascript</option>
+          <option value="3">Bài 3: Cấu
+            Trúc Điều Khiển, Hàm Và Sự Kiện trong Javacript</option>
+          <option value="4">Bài
+            4: Lập trình đối tượng trong Javascript và mô hình BOM</option>
+          <option value="5">Bài 5: Mô hình DOM
+            trong javascript</option>
+          <option value="6">Bài 6:
+            Validate Form</option>
+          <option value="7">Bài 7: Giới Thiệu Javascript Framework</option>
+          <option value="8">Bài 8: Tập tành sử dụng angularJS</option>
+        </select>
+        <button type="button" onclick="kiemtra()">Xem bài học</button>
+      </div>
+    </fieldset>
+  </div>
+</body>
+<script>
+  function kiemtra() {
+    var link = document.getElementById("link");
+    if (link.value == 1) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/javascript-la-gi';
+    }
+    if (link.value == 2) {
+      window.location.href =
+        'https://longnv.name.vn/lap-trinh-javascript/bien-kieu-toan-tu-va-bieu-thuc-trong-javascript';
+    }
+    if (link.value == 3) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/cau-truc-dieu-khien-trong-javacript';
+    }
+    if (link.value == 4) {
+      window.location.href =
+        'https://longnv.name.vn/lap-trinh-javascript/lap-trinh-doi-tuong-trong-javascript-va-mo-hinh-bom';
+    }
+    if (link.value == 5) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/mo-hinh-dom-trong-javascript';
+    }
+    if (link.value == 6) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/kiem-tra-du-lieu-trong-form-voi-javascript';
+    }
+    if (link.value == 7) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/gioi-thieu-ve-javascript-framework';
+    }
+    if (link.value == 8) {
+      window.location.href = 'https://longnv.name.vn/lap-trinh-javascript/su-dung-angularjs';
+    }
+  }
+</script>
+
+</html>

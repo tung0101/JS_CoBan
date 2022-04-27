@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background-color: aqua;
+  }
+
+  form {
+    border-radius: 10px;
+    background-color: #FFA07A;
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    margin: 0 auto;
+  }
+
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+  }
+
+  table {
+    margin-left: 20px;
+  }
+
+  input {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 20px;
+    width: 200px;
+  }
+
+  label {
+    font-weight: 700px;
+  }
+
+  .nut {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nut button {
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+  }
+
+  #kq {
+    margin: 20px auto;
+    height: 140px;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid #FFA07A;
+    text-align: center;
+    font-size: 24px;
+  }
+</style>
+
+<body>
+  <form action="">
+    <h3>Bé làm toán</h3>
+    <table>
+      <tr>
+        <td><label>Nhập số a</label></td>
+        <td><input type="text" id="a"></td>
+      </tr>
+      <tr>
+        <td><label>Nhập số b:</label></td>
+        <td><input type="text" id="b"></td>
+      </tr>
+      <tr>
+        <td><label>Đáp án</label></td>
+        <td><input type="text" id="c"></td>
+      </tr>
+    </table>
+    <div class="nut">
+      <button type="button" onclick="xuly();choso();check();">Trả Lời</button>
+    </div>
+    <div id="kq"></div>
+  </form>
+  <script>
+    function check() {
+      let c = document.getElementById("c").value;
+      if (c == "") {
+        alert("Nhập số vào bé ơi");
+        document.getElementById("kq").innerHTML = "LỖI";
+      }
+    }
+
+    function choso() {
+      var a = Math.round(50 * Math.random());
+      var b = Math.round(50 * Math.random());
+
+      document.getElementById("a").value = a;
+      document.getElementById("b").value = b;
+    }
+
+    function xuly() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      let c = document.getElementById("c").value;
+      var d = a + b;
+      if (c == d) {
+        document.getElementById("kq").innerHTML = "GIỎI QUÁ BÉ ƠI";
+      } else {
+        document.getElementById("kq").innerHTML = "SAI RỒI BÉ IU";
+      }
+
+    }
+  </script>
+</body>
+
+</html>

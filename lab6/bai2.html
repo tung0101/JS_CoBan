@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid darkslategrey;
+      box-shadow: 2px 2px 1px darkcyan;
+      border-radius: 5px;
+      font-size: 1.2em;
+      transform: rotate(-10deg);
+    }
+
+    label {
+      width: 120px;
+      display: inline-block;
+    }
+
+    p,
+    h2 {
+      margin-left: 15px;
+    }
+
+    input[id],
+    select {
+      padding: 8px;
+      width: 420px;
+      background-color: salmon;
+      border: none;
+    }
+
+    button {
+      width: 140px;
+      height: 40px;
+      border: none;
+      background-color: darkgoldenrod;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <p><label> Sản Phẩm </label> <input id="tensp" placeholder="Nhập tên sản phẩm"></p>
+    <p><label> Loại </label>
+      <select name="" id="loai">
+        <option value="">Chọn Loại Sản Phẩm</option>
+        <option value="dt">Điện Thoại</option>
+        <option value="mt">Máy Tính</option>
+      </select>
+    </p>
+    <p><label> Đơn giá </label><input id="gia" placeholder="Nhập đơn giá"></p>
+    <p><label> Nợi nhận hàng</label>
+      <input type="radio" name="diachi" onclick="hienthi(false)">Nội thành
+      <input type="radio" name="diachi" onclick="hienthi(true)">Ngoại thành
+    </p>
+    <div id="kq"></div>
+    <p id="vc"><label>Phí vận chuyển</label> <input id="phi_vc" value="100000"></p>
+    <p><label></label> <button type="button" onclick="return kiemtra()">Đặt Mua</button></p>
+  </form>
+  <script>
+    function kiemtra() {
+      thanhcong = true;
+      thongbao = "";
+      var sp = document.getElementById("tensp");
+      if (sp.value.length == 0) {
+        thongbao += "Vui lòng nhập tên sản phẩm<br>";
+        thanhcong = false;
+      }
+      var loai = document.getElementById("loai");
+      if (loai.value == "") {
+        thongbao += "Vui lòng chọn một loại sản phẩm<br>";
+        thanhcong = false;
+      }
+      var gia = document.getElementById("gia");
+      if (gia.value == "") {
+        thongbao += "Bạn chưa nhập giá<br>";
+        thanhcong = false;
+      }
+      if (isNaN(gia.value) == true) {
+        thongbao += "Bạn cần nhập giá là số nhé<br>";
+        thanhcong = false;
+      }
+      if (parseInt(gia.value) <= 0) {
+        thongbao += "Bạn phải nhập giá là số dương<br>";
+        thanhcong = false;
+      }
+      var radio = document.getElementsByName("diachi");
+      if (radio[0].checked == false && radio[1].checked == false) {
+        thongbao += "Vui lòng chọn nơi giao hàng";
+        thanhcong = false;
+      }
+      if (thongbao == "")
+        thongbao = "Nhập đúng dữ liệu";
+      document.getElementById("kq").innerHTML = thongbao;
+      return thanhcong;
+    }
+
+    function hienthi(v) {
+      vc = document.getElementById("vc");
+      vc.style.display = (v == true) ? "" : "none";
+    }
+  </script>
+</body>
+
+</html>

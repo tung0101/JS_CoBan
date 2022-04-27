@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var w;
+
+    function mowin() {
+      w = window.open("thongtin.html", "thongtin.html", "width=400,height=200,top=50,left=600");
+      w.focus();
+    }
+
+    function dongwin() {
+      w.close();
+      w.focus();
+    }
+
+    function dc1c() {
+      w.moveBy(5, 10);
+      w.focus();
+    }
+
+    function dcd() {
+      var x = prompt("Nhập x: ");
+      var y = prompt("Nhập y: ");
+      w.moveTo(x, y);
+      w.focus();
+    }
+  </script>
+  <style>
+    .container {
+      border: 1px solid black;
+      margin: 0 auto;
+      height: 500px;
+      width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      height: 60px;
+      width: 250px;
+      margin: 10px 130px;
+      color: black;
+      background-color: darkgoldenrod;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Thực hành với đối tượng Window</h1>
+    <button onclick="mowin()">Mỏ win</button> <br>
+    <button onclick="window.print()">In Ấn</button> <br>
+    <button onclick="dc1c()">Di chuyển 1 chút</button> <br>
+    <button onclick="dcd()">Di chuyển tới địa điểm</button> <br>
+    <button onclick="dongwin()">Đóng Win</button> <br>
+  </div>
+
+</body>
+
+</html>

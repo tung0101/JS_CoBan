@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .container {
+    border: 1px solid black;
+    height: 400px;
+    width: 400px;
+    margin: 100px auto;
+    border-radius: 15px;
+  }
+
+  .container1 {
+    margin-left: 20px;
+  }
+
+  h2 {
+    color: black;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  input {
+    height: 15px;
+    width: 15px;
+    margin: 8px 5px;
+  }
+
+  button {
+    border: none;
+    background-color: #40E0D0;
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+
+  .abc {
+    padding-left: 5px;
+    height: 80px;
+    width: 300px;
+    border: solid 1px black;
+    color: white;
+    background-color: black;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+  }
+
+  .xyz {
+    color: red;
+    padding-left: 5px;
+    font-weight: 700;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="container1">
+      <h2>Bạn Nhớ Tới Mẹ Khi Nào: </h2>
+      <div id="ketqua"></div>
+      <form>
+        <input type="checkbox" name="me" value="Đói"><span style="font-weight: 700;">Đói</span><br>
+        <input type="checkbox" name="me" value="No"><span style="font-weight: 700;">No</span><br>
+        <input type="checkbox" name="me" value="Bệnh"><span style="font-weight: 700;">Bệnh</span><br>
+        <input type="checkbox" name="me" value="Vui"><span style="font-weight: 700;">Vui</span><br>
+        <input type="checkbox" name="me" value="Buồn"><span style="font-weight: 700;">Buồn</span><br>
+        <button id="btn1" type="button" onclick="check()">Chọn</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function check() {
+      arr = document.getElementsByName("me");
+      var kq = document.getElementById("ketqua");
+      var dem = 0;
+      kq.innerHTML = "";
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i].checked) {
+          var v = arr[i].value;
+          var chu = document.createTextNode(v);
+          var tagp = document.createElement("p");
+          tagp.appendChild(chu);
+          kq.appendChild(tagp);
+          dem++;
+        }
+      }
+      if (dem > 0) {
+        kq.className = "abc";
+      } else {
+        kq.innerHTML = "Bạn Chưa Chọn Mục Nào";
+        kq.className = "xyz";
+      }
+    }
+  </script>
+</body>
+
+</html>

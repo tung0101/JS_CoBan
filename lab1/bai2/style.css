@@ -1,0 +1,31 @@
+body{
+  background-color: #87CEFA;
+}
+
+form {
+  margin: 0 auto;
+  width: 600px;
+  height: 270px;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-top: 200px;
+  background-color: white;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 550px;
+  height: 100px;
+}
+
+td b {
+  color: black;
+  text-align: right;
+}
+
+tr th {
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+}
